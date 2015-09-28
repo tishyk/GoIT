@@ -17,7 +17,7 @@ for r in res:
     title = r.find('h3').getText()
     Published = r.find('time')
     datePublished = Published['datetime']
-    if '-09' not in datePublished: continue
+    if '-09-' not in datePublished: continue
     if ('QA' or 'Test' or 'Automation') not in title: continue
     print datePublished, title, '\n'+link
 
