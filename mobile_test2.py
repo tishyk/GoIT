@@ -30,17 +30,12 @@ def run_test():
     xml = d.dump()
     d.press(5)
     d.press.back()
-    d.swipe(400, 5, 400, 600)
-    d.swipe(400, 1280, 400, 5)
-    d(class='android.widget.CheckBox').click()
-    '''
-    d.swipe(400, 1000, 400, 200)
-    d.swipe(5, 100, 500, 100)
-    d.swipe(500, 100, 5, 100)
-    os.popen('adb -s %s uninstall %s'%(device_id,package))
-    sp.Popen('adb -s %s logcat -d>Log.txt' % (device_id), shell=True)
-
-    logging.info("--- Test Finished! ---") '''
+    d(scrollable=True).fling()
+    d(scrollable=True).fling.vert.backward()
+    d(className='android.widget.RelativeLayout')[9].child(
+        className='android.widget.CheckBox').click()
+    d(text='viber').sibling(className='android.widget.CheckBox').click()
+    logging.info("--- Test Finished! ---")
 
 
 if __name__ == "__main__":
