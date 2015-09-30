@@ -36,7 +36,7 @@ def get_content(page_data):
         title = r.find('h3').getText()
         Published = r.find('time')
         datePublished = Published['datetime']
-        if '-09-' not in datePublished: continue
+        if '-10-' not in datePublished: continue
         if ('QA' or 'Test' or 'Automation') not in title: continue
         content.append([datePublished, title, link])
         
