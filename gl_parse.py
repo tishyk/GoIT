@@ -12,7 +12,6 @@ parsed_data = bs4.BeautifulSoup(page_data, "html.parser")
 res = parsed_data.body.findAll('a', attrs={'class':'cl-link'})
 
 for r in res:
-    #print str(r).decode('utf-8')
     link = r['href']
     title = r.find('h3').getText()
     Published = r.find('time')
